@@ -1,13 +1,15 @@
 package com.Java_Programmes.CRM;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class Drop_Down {
+
+public class Tag_NAME {
 
 	public static void main(String[] args) {
 		String path = "C:\\Selenium3\\Drivers\\chromedriver.exe";
@@ -16,11 +18,15 @@ public class Drop_Down {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
-		driver.get("https://getbootstrap.com/docs/4.1/components/dropdowns/#split-button");
-		Select sel_Dp= new Select(driver.findElement(By.xpath("//button[text()='Primary' and @class='btn btn-primary dropdown-toggle']")));
-		sel_Dp.selectByVisibleText("Separated link");
-		sel_Dp.selectByIndex(1);
-		sel_Dp.selectByValue("Actions");
+		driver.get("https://www.google.com");
+		List<WebElement> Inputs_Tags = driver.findElements(By.tagName("a"));
+		System.out.println(Inputs_Tags.size());
+		for (int i = 0; i < Inputs_Tags.size(); i++) {
+			String str =Inputs_Tags.get(i).getText();
+			System.out.println(str);
+			
+		}
+
 	}
 
 }

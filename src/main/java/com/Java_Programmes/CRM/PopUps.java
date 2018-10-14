@@ -24,6 +24,7 @@ public class PopUps {
 		String str = alt.getText();
 		System.out.println("Text Message of the Alert is: "+str);
 		alt.accept();
+		driver.close();
 
 	}
 
